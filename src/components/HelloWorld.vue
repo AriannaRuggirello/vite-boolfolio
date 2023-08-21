@@ -33,16 +33,25 @@ export default {
 
 
 <template>
-  <h1>Projects</h1>
-  <ul>
-    <li v-for="project in projects" :key="project.id">
-      [{{ project.id }}] {{ project.title }}
-    </li>
-  </ul>
-  <div class="pages row justify-content-center cursor-pointer">
-    <div v-for="(page, index) in pages" :key="index" class="page col " :class="(page.active ? 'bg-white text-dark' : 'bg-secondary')
-      + ' '
-      + (page.url == null ? 'd-none' : '')" v-html="page.label" role="button" @click="loadPage(page.url)">
+  <div class="container">
+    <h1>Projects</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class=" card" v-for="project in projects" :key="project.id">
+        [{{ project.id }}] {{ project.title }}
+
+      </div>
+    </div>
+
+
+
+
+
+
+    <div class="pages row justify-content-center cursor-pointer py-5">
+      <div v-for="(page, index) in pages" :key="index" class="page col " :class="(page.active ? 'bg-white text-dark' : 'bg-secondary')
+        + ' '
+        + (page.url == null ? 'd-none' : '')" v-html="page.label" role="button" @click="loadPage(page.url)">
+      </div>
     </div>
   </div>
 </template>
